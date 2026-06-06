@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>24時間自習室 | 塾トキ｜三条市の高校生専用自習室 8月オープン</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Bebas+Neue&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#ffffff;
+  --off-white:#f8f7f4;
+  --cream:#f2efe8;
+  --amber:#b87a10;
+  --amber-light:#d4930e;
+  --amber-pale:#fdf3e0;
+  --ink:#111111;
+  --ink2:#2a2a2a;
+  --muted:#6b6860;
+  --border:#e2ddd6;
+  --border-light:#eeebe5;
+  --dark:#111111;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--white);color:var(--ink);line-height:1.75;overflow-x:hidden;font-size:16px}
+
+.label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:14px}
+.h2{font-size:clamp(26px,4.5vw,46px);font-weight:900;line-height:1.22;letter-spacing:-.01em;color:var(--ink)}
+.h3{font-size:clamp(18px,2.5vw,22px);font-weight:700;line-height:1.35;color:var(--ink)}
+.lead{font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--muted)}
+.divbar{width:40px;height:3px;background:var(--amber);margin-bottom:32px}
+em{font-style:normal;color:var(--amber)}
+.sec{padding:96px 40px}
+.sec-inner{max-width:1000px;margin:0 auto}
+@keyframes fadeup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-light);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px;transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-mark{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--amber);letter-spacing:.08em}
+.nav-logo-text{font-size:12px;font-weight:700;color:var(--ink2);letter-spacing:.12em}
+.nav-cta{background:var(--amber);color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;padding:9px 22px;text-decoration:none;transition:background .15s,transform .1s;border-radius:3px}
+.nav-cta:hover{background:var(--amber-light);transform:translateY(-1px)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:#111}
+.hero-video-wrap{position:absolute;inset:0;z-index:0}
+.hero-video-wrap video{width:100%;height:100%;object-fit:cover;opacity:.75}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,255,255,.18) 0%,rgba(0,0,0,.25) 40%,rgba(0,0,0,.55) 100%);z-index:1}
+.hero-overlay-top{position:absolute;top:0;left:0;right:0;height:120px;background:linear-gradient(rgba(255,255,255,.25),transparent);z-index:1}
+.hero-inner{position:relative;z-index:2;max-width:1000px;margin:0 auto;padding:140px 40px 100px;width:100%}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.4);padding:8px 18px;margin-bottom:40px;animation:fadeup .7s ease both;border-radius:2px}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:pulse 2s ease infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-eyebrow-text{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff}
+.hero-kv{margin-bottom:24px;animation:fadeup .7s .08s ease both}
+.hero-kv-main{font-family:'Bebas Neue',sans-serif;font-size:clamp(80px,15vw,160px);line-height:.9;color:#fff;letter-spacing:.02em;display:block;text-shadow:0 2px 24px rgba(0,0,0,.3)}
+.hero-kv-main span{color:var(--amber-light)}
+.hero-kv-sub{font-size:clamp(22px,3.5vw,40px);font-weight:900;color:#fff;line-height:1.3;display:block;margin-top:20px;letter-spacing:-.01em;text-shadow:0 1px 12px rgba(0,0,0,.3)}
+.hero-body{font-size:clamp(14px,1.8vw,17px);color:rgba(255,255,255,.85);max-width:520px;margin-bottom:48px;animation:fadeup .7s .16s ease both;line-height:1.9}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;animation:fadeup .7s .24s ease both}
+.btn-primary{background:var(--amber);color:#fff;font-size:15px;font-weight:700;padding:17px 48px;text-decoration:none;letter-spacing:.04em;transition:background .15s,transform .1s,box-shadow .15s;display:inline-block;border-radius:3px;box-shadow:0 4px 20px rgba(184,122,16,.4)}
+.btn-primary:hover{background:var(--amber-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(184,122,16,.5)}
+.btn-ghost{background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1.5px solid rgba(255,255,255,.6);color:#fff;font-size:14px;font-weight:600;padding:17px 36px;text-decoration:none;letter-spacing:.04em;transition:background .15s,border-color .15s;display:inline-block;border-radius:3px}
+.btn-ghost:hover{background:rgba(255,255,255,.28);border-color:#fff}
+.hero-stats{position:absolute;bottom:56px;right:40px;z-index:2;display:flex;flex-direction:column;gap:8px;animation:fadein 1s .5s ease both;opacity:0}
+.hero-stat{background:rgba(255,255,255,.18);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.35);padding:14px 22px;text-align:right;border-radius:4px}
+.hero-stat-num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:#fff;line-height:1;letter-spacing:.04em}
+.hero-stat-label{font-size:10px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.65);margin-top:2px}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeup .7s .6s ease both}
+.hero-scroll-line{width:1px;height:48px;background:rgba(255,255,255,.3);position:relative;overflow:hidden}
+.hero-scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:#fff;animation:scrolldown 2.2s ease infinite}
+@keyframes scrolldown{0%{top:-100%}100%{top:200%}}
+.hero-scroll-text{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+
+/* BANNER */
+.open-banner{background:var(--amber);padding:16px 40px;text-align:center;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
+.open-banner-text{font-size:clamp(13px,2vw,15px);font-weight:700;color:#fff;letter-spacing:.04em}
+.open-banner-divider{width:1px;height:24px;background:rgba(255,255,255,.35)}
+
+/* FEATURES */
+.features-sec{background:var(--off-white);padding:96px 40px}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.feature-card{background:var(--white);padding:40px 28px;border:1px solid var(--border-light);border-radius:8px;transition:box-shadow .2s,transform .2s}
+.feature-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.08);transform:translateY(-3px)}
+.feature-icon{font-size:32px;margin-bottom:18px;display:block}
+.feature-tag{display:inline-block;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(184,122,16,.4);color:var(--amber);margin-bottom:16px;border-radius:2px;background:var(--amber-pale)}
+.feature-card .h3{margin-bottom:12px;font-size:17px}
+.feature-card p{font-size:14px;color:var(--muted);line-height:1.85}
+
+/* GALLERY */
+.room-sec{background:var(--white);padding:96px 40px}
+.room-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:48px;border-radius:8px;overflow:hidden}
+.room-photo{position:relative;overflow:hidden;aspect-ratio:4/3}
+.room-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.room-photo:hover img{transform:scale(1.04)}
+.room-photo-wide{grid-column:span 2;aspect-ratio:16/7}
+.room-photo-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.55));padding:24px 20px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.9);text-transform:uppercase;font-family:'Montserrat',sans-serif}
+.room-photo-note{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.45);color:rgba(255,255,255,.75);font-size:10px;font-weight:500;padding:3px 8px;border-radius:2px;letter-spacing:.04em;font-family:'Noto Sans JP',sans-serif}
+.room-info-bar{margin-top:24px;background:var(--amber-pale);border:1px solid rgba(184,122,16,.2);padding:20px 28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;border-radius:6px}
+.room-info-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--amber);line-height:1}
+.room-info-text-main{font-size:16px;font-weight:700;color:var(--ink)}
+.room-info-text-sub{font-size:13px;color:var(--muted);margin-top:3px}
+
+/* WHY */
+.why-sec{background:var(--off-white);padding:96px 40px}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:56px}
+.why-sticky{position:sticky;top:80px}
+.insight-box{background:var(--white);border-left:4px solid var(--amber);padding:28px 32px;margin-top:32px;border-radius:0 6px 6px 0;box-shadow:0 2px 16px rgba(0,0,0,.05)}
+.insight-box p{font-size:16px;font-weight:700;line-height:1.65;color:var(--ink)}
+.insight-box .sub{font-size:14px;color:var(--muted);font-weight:400;margin-top:10px}
+.why-list{list-style:none;margin-top:8px}
+.why-item{padding:20px 0;border-bottom:1px solid var(--border-light);display:flex;align-items:flex-start;gap:18px}
+.why-item:first-child{border-top:1px solid var(--border-light)}
+.why-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--amber);line-height:1;flex-shrink:0;width:28px}
+.why-item-body h4{font-size:15px;font-weight:700;margin-bottom:5px;color:var(--ink)}
+.why-item-body p{font-size:14px;color:var(--muted);line-height:1.75}
+
+/* COMPARE */
+.compare-sec{background:var(--white);padding:96px 40px}
+.compare-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+.compare-col{padding:36px 32px;border-radius:8px}
+.compare-col.bad{background:var(--off-white);border:1px solid var(--border)}
+.compare-col.good{background:var(--ink);border:1px solid var(--ink)}
+.compare-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid}
+.compare-col.bad .compare-header{border-color:var(--border)}
+.compare-col.good .compare-header{border-color:rgba(255,255,255,.12)}
+.c-badge{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;padding:5px 12px;border-radius:2px}
+.bad .c-badge{background:var(--border);color:var(--muted)}
+.good .c-badge{background:rgba(184,122,16,.25);color:var(--amber-light)}
+.c-title{font-size:15px;font-weight:700}
+.bad .c-title{color:var(--muted)}
+.good .c-title{color:#fff}
+.c-list{list-style:none}
+.c-list li{padding:10px 0;border-bottom:1px solid;font-size:14px;padding-left:20px;position:relative;line-height:1.55}
+.bad .c-list li{border-color:var(--border-light);color:var(--muted)}
+.good .c-list li{border-color:rgba(255,255,255,.07);color:rgba(255,255,255,.85);font-weight:500}
+.c-list li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:8px;height:1.5px}
+.bad .c-list li::before{background:var(--border)}
+.good .c-list li::before{background:var(--amber)}
+.c-list li:last-child{border-bottom:none}
+
+/* PRICE */
+.price-sec{background:var(--off-white);padding:96px 40px}
+.price-inquiry{background:var(--white);border:1px solid var(--border-light);border-radius:12px;padding:56px 48px;text-align:center;margin-top:48px;box-shadow:0 4px 24px rgba(0,0,0,.05)}
+.price-inquiry-icon{font-size:48px;display:block;margin-bottom:20px}
+.price-inquiry-title{font-size:clamp(20px,3vw,28px);font-weight:900;color:var(--ink);margin-bottom:12px}
+.price-inquiry-body{font-size:15px;color:var(--muted);line-height:1.85;max-width:520px;margin:0 auto 32px}
+.price-inquiry-btn{display:inline-block;background:var(--amber);color:#fff;font-size:16px;font-weight:700;padding:16px 52px;text-decoration:none;border-radius:4px;letter-spacing:.04em;transition:background .15s,transform .1s,box-shadow .15s;box-shadow:0 4px 16px rgba(184,122,16,.3)}
+.price-inquiry-btn:hover{background:var(--amber-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,122,16,.4)}
+.price-inquiry-note{margin-top:20px;font-size:13px;color:var(--muted)}
+.price-points{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px;text-align:left}
+.price-point{background:var(--off-white);border-radius:8px;padding:20px;border:1px solid var(--border-light)}
+.price-point-icon{font-size:22px;margin-bottom:8px;display:block}
+.price-point-label{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.price-point-body{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* TIMELINE */
+.timeline-sec{background:var(--white);padding:96px 40px}
+.timeline{margin-top:48px;position:relative;padding-left:40px}
+.timeline::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:2px;background:linear-gradient(var(--amber) 0%,var(--border-light) 100%)}
+.tl-item{position:relative;padding-bottom:44px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:-44px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px rgba(184,122,16,.15)}
+.tl-month{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+.tl-title{font-size:18px;font-weight:700;margin-bottom:6px;color:var(--ink)}
+.tl-body{font-size:14px;color:var(--muted);line-height:1.75;max-width:560px}
+.tl-open{background:var(--amber-pale);border:1px solid rgba(184,122,16,.25);padding:20px 24px;border-radius:6px;margin-top:10px;display:inline-block}
+.tl-open-text{font-size:16px;font-weight:900;color:var(--amber)}
+.tl-open-sub{font-size:13px;color:var(--muted);margin-top:4px}
+
+/* CTA */
+.cta-sec{background:var(--off-white);padding:100px 40px;position:relative}
+.cta-inner{max-width:680px;margin:0 auto;text-align:center}
+.cta-limit{display:inline-block;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.18em;border:1px solid rgba(184,122,16,.45);color:var(--amber);padding:6px 14px;margin-bottom:24px;border-radius:2px;text-transform:uppercase;background:var(--amber-pale)}
+.cta-sec .h2{margin-bottom:16px}
+.cta-sec .lead{margin-bottom:36px}
+.cta-highlight{display:inline-block;background:var(--amber-pale);border:1px solid rgba(184,122,16,.3);padding:16px 28px;margin-bottom:40px;font-size:clamp(14px,1.8vw,16px);font-weight:700;color:var(--amber);letter-spacing:.03em;border-radius:6px}
+.cta-form{background:var(--white);border:1px solid var(--border);padding:40px;border-radius:12px;box-shadow:0 4px 32px rgba(0,0,0,.06);text-align:left;margin-bottom:24px}
+.cta-form h3{color:var(--ink);font-size:18px;font-weight:700;margin-bottom:24px;text-align:center}
+.form-group{margin-bottom:16px}
+.form-label{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--muted);margin-bottom:6px;display:block}
+.form-input{width:100%;background:var(--off-white);border:1.5px solid var(--border);color:var(--ink);font-size:15px;padding:13px 16px;font-family:'Noto Sans JP',sans-serif;outline:none;transition:border-color .15s;border-radius:6px}
+.form-input:focus{border-color:var(--amber);background:var(--white)}
+.form-input::placeholder{color:#aaa}
+.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23aaa' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.form-submit{width:100%;background:var(--amber);color:#fff;font-size:16px;font-weight:700;padding:18px;border:none;cursor:pointer;letter-spacing:.06em;font-family:'Noto Sans JP',sans-serif;transition:background .15s,transform .1s,box-shadow .15s;margin-top:8px;border-radius:6px;box-shadow:0 4px 16px rgba(184,122,16,.35)}
+.form-submit:hover{background:var(--amber-light);transform:translateY(-1px);box-shadow:0 6px 24px rgba(184,122,16,.45)}
+.cta-note{font-size:12px;color:var(--muted);line-height:1.8}
+
+/* FAQ */
+.faq-sec{background:var(--white);padding:96px 40px}
+.faq-list{margin-top:48px;display:flex;flex-direction:column;gap:8px}
+.faq-item{background:var(--off-white);border:1px solid var(--border-light);border-radius:8px;overflow:hidden}
+.faq-q{width:100%;background:none;border:none;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;text-align:left}
+.faq-q-text{font-size:15px;font-weight:700;color:var(--ink);line-height:1.5}
+.faq-icon{width:26px;height:26px;border:1.5px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;background:var(--white)}
+.faq-icon::before{content:'+';color:var(--amber);font-size:16px;line-height:1;font-family:'Montserrat',sans-serif;font-weight:700}
+.faq-item.open .faq-icon{background:var(--amber);border-color:var(--amber)}
+.faq-item.open .faq-icon::before{content:'−';color:#fff}
+.faq-a{display:none;padding:0 24px 20px;font-size:14px;color:var(--muted);line-height:1.85}
+.faq-item.open .faq-a{display:block}
+.faq-item.open{border-color:rgba(184,122,16,.25)}
+
+/* FOOTER */
+footer{background:var(--ink);padding:48px 40px;text-align:center}
+.ft-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--amber);letter-spacing:.1em;margin-bottom:8px}
+.ft-name{font-size:13px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.1em;margin-bottom:6px}
+.ft-info{font-size:12px;color:rgba(255,255,255,.25);line-height:2}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:0 16px}
+  .hero-inner{padding:100px 20px 80px}
+  .hero-stats{display:none}
+  .sec,.features-sec,.room-sec,.why-sec,.compare-sec,.price-sec,.timeline-sec,.faq-sec{padding:64px 20px}
+  .cta-sec{padding:72px 20px}
+  .features-grid{grid-template-columns:1fr}
+  .room-grid{grid-template-columns:1fr}
+  .room-photo-wide{grid-column:span 1;aspect-ratio:4/3}
+  .why-grid{grid-template-columns:1fr;gap:40px}
+  .why-sticky{position:static}
+  .compare-wrap{grid-template-columns:1fr}
+  .price-inquiry{padding:40px 24px}
+  .price-points{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column;gap:12px}
+  .btn-primary,.btn-ghost{width:100%;text-align:center;padding:16px 24px}
+  .open-banner{flex-direction:column;gap:8px;padding:14px 20px}
+  .open-banner-divider{display:none}
+  .cta-form{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <a class="nav-logo" href="#">
+    <span class="nav-logo-mark">TOKI</span>
+    <span class="nav-logo-text">塾トキ｜三条市</span>
+  </a>
+  <a class="nav-cta" href="#cta">事前登録する</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline>
+      <source src="classroom.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-overlay-top"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="hero-dot"></span>
+      <span class="hero-eyebrow-text">2026年8月 オープン &nbsp;—&nbsp; 三条市 高校生専用自習室</span>
+    </div>
+    <div class="hero-kv">
+      <span class="hero-kv-main">24<span>/</span>365</span>
+      <span class="hero-kv-sub">いつでも使える、<em>本気の自習室。</em></span>
+    </div>
+    <p class="hero-body">
+      登校前の早朝でも、土日祝日でも、受験前日でも。<br>
+      三条高校・三条東高校の高校生が<br>
+      「本気で勉強できる場所」が、ここに生まれます。
+    </p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#cta">オープン前に事前登録する</a>
+      <a class="btn-ghost" href="#features">自習室の詳細を見る</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">24H</div><div class="hero-stat-label">Open Hours</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">365</div><div class="hero-stat-label">Days / Year</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">∞</div><div class="hero-stat-label">Usage / Month</div></div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span class="hero-scroll-text">Scroll</span>
+  </div>
+</section>
+
+<!-- BANNER -->
+<div class="open-banner">
+  <span class="open-banner-text">🎉 2026年8月 グランドオープン決定</span>
+  <div class="open-banner-divider"></div>
+  <span class="open-banner-text">事前登録で <strong>初月利用料 50% OFF</strong></span>
+  <div class="open-banner-divider"></div>
+  <span class="open-banner-text">残り <strong>先着3名</strong> 限定特典あり</span>
+</div>
+
+<!-- FEATURES -->
+<section class="features-sec" id="features">
+  <div class="sec-inner">
+    <span class="label">Why 塾トキ 自習室</span>
+    <div class="divbar"></div>
+    <h2 class="h2">他の自習室と、<br><em>何が違うのか。</em></h2>
+    <p class="lead" style="margin-top:16px;max-width:600px">時間の制約なし。予約不要。高校生が本当に必要なときに、集中できる環境がある。</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-tag">24H / 365D</span>
+        <span class="feature-icon">🌙</span>
+        <h3 class="h3">早朝・土日祝日も<br>使い放題</h3>
+        <p>早朝からでも利用可能。公共施設が開く前から勉強できます。土日祝日も同じように使えます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-tag">Individual Booth</span>
+        <span class="feature-icon">📐</span>
+        <h3 class="h3">完全個別ブースで<br>集中できる</h3>
+        <p>木製パーテーションで仕切られた個別ブース。視界に他の人が入らない、自分だけの集中空間。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-tag">All Inclusive</span>
+        <span class="feature-icon">⚡</span>
+        <h3 class="h3">月額固定で<br>すべて使い放題</h3>
+        <p>何時間来ても月額固定。Wi-Fi・コンセント・照明完備。「今日は短いからもったいない」がなくなります。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-tag">Smart Entry</span>
+        <span class="feature-icon">🔑</span>
+        <h3 class="h3">スマートロックで<br>スムーズ入退室</h3>
+        <p>スマホひとつで入退室。早朝・休日でも安全に利用できるセキュリティを完備。保護者も安心。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-tag">Quiet Zone</span>
+        <span class="feature-icon">🤫</span>
+        <h3 class="h3">完全静粛で<br>集中できる環境</h3>
+        <p>会話禁止の静粛ゾーン。完全に「勉強モード」に入れる空間設計です。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-tag">For High Schoolers</span>
+        <span class="feature-icon">🎯</span>
+        <h3 class="h3">高校生専用だから<br>安心して使える</h3>
+        <p>利用者は高校生に限定。三条高校・三条東高校生が多数在籍予定。同じ目標の仲間と学べます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="room-sec">
+  <div class="sec-inner">
+    <span class="label">Inside the Room</span>
+    <div class="divbar"></div>
+    <h2 class="h2">教室の中を、<br><em>のぞいてみてください。</em></h2>
+    <p class="lead" style="margin-top:16px;max-width:580px">木の温もりと集中のための静けさが共存する、こだわりの自習室です。</p>
+    <div class="room-grid">
+      <div class="room-photo room-photo-wide">
+        <img src="room-overview.png" alt="塾トキ 自習室 全景">
+        <span class="room-photo-note">※完成予定イメージ</span>
+        <div class="room-photo-caption">Room Overview — 全景</div>
+      </div>
+      <div class="room-photo">
+        <img src="booth.png" alt="個別ブース">
+        <span class="room-photo-note">※完成予定イメージ</span>
+        <div class="room-photo-caption">Individual Booth — 個別ブース</div>
+      </div>
+      <div class="room-photo">
+        <img src="locker.png" alt="ロッカー・収納">
+        <span class="room-photo-note">※完成予定イメージ</span>
+        <div class="room-photo-caption">Locker &amp; Storage — ロッカー</div>
+      </div>
+    </div>
+    <div class="room-info-bar">
+      <div class="room-info-num">8月</div>
+      <div>
+        <div class="room-info-text-main">2026年8月グランドオープン予定</div>
+        <div class="room-info-text-sub">〒955-0861 新潟県三条市北新保１丁目１８−２２（学習塾トキ）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-sec">
+  <div class="sec-inner">
+    <div class="why-grid">
+      <div class="why-sticky">
+        <span class="label">The Problem</span>
+        <div class="divbar"></div>
+        <h2 class="h2">「勉強したい」のに、<br>できる<em>場所がない</em>。</h2>
+        <div class="insight-box">
+          <p>家では集中できない。図書館は閉まる。カフェは席がない。塾は授業時間しか使えない。</p>
+          <p class="sub">三条市の高校生が本当に必要としているのは「いつでも使える自分だけの場所」です。</p>
+        </div>
+      </div>
+      <div>
+        <p class="lead" style="margin-bottom:24px">こんな経験、ありませんか？</p>
+        <ul class="why-list">
+          <li class="why-item"><span class="why-num">01</span><div class="why-item-body"><h4>家に帰るとどうしても集中できない</h4><p>スマホ、テレビ、家族の声。自宅での勉強は誘惑との戦いになる。</p></div></li>
+          <li class="why-item"><span class="why-num">02</span><div class="why-item-body"><h4>図書館の閉館時間が早すぎる</h4><p>部活が終わって、夕食を食べてから行こうとしたらもう閉まっている。</p></div></li>
+          <li class="why-item"><span class="why-num">03</span><div class="why-item-body"><h4>受験前日に集中できる場所がない</h4><p>試験前日、本当に集中したいときに使える施設がない。</p></div></li>
+          <li class="why-item"><span class="why-num">04</span><div class="why-item-body"><h4>塾は授業時間しか使えない</h4><p>塾に通っていても自習できる時間は限られている。もっと使いたい。</p></div></li>
+          <li class="why-item"><span class="why-num">05</span><div class="why-item-body"><h4>友達がいると話してしまう</h4><p>カフェや友達の家では結局勉強できない。ひとりで集中したい。</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="compare-sec">
+  <div class="sec-inner">
+    <span class="label">Comparison</span>
+    <div class="divbar"></div>
+    <h2 class="h2">塾トキ自習室 vs<br><em>他の選択肢</em></h2>
+    <div class="compare-wrap">
+      <div class="compare-col bad">
+        <div class="compare-header"><span class="c-badge">今まで</span><span class="c-title">自宅・図書館・カフェ</span></div>
+        <ul class="c-list">
+          <li>閉館時間がある（夜9時など）</li>
+          <li>ノイズがあって集中しにくい</li>
+          <li>席の確保ができないことがある</li>
+          <li>スマホの誘惑が多い</li>
+          <li>電源・Wi-Fiが使えないことも</li>
+          <li>早朝・土日祝日は使えないことが多い</li>
+          <li>勉強モードに入りにくい</li>
+        </ul>
+      </div>
+      <div class="compare-col good">
+        <div class="compare-header"><span class="c-badge">塾トキ 自習室</span><span class="c-title">塾トキ 自習室</span></div>
+        <ul class="c-list">
+          <li>24時間365日、いつでも使える</li>
+          <li>完全静粛ゾーンで集中できる</li>
+          <li>自分専用ブースで席の心配なし</li>
+          <li>勉強に特化した空間設計</li>
+          <li>電源・高速Wi-Fi完備</li>
+          <li>早朝からでも・土日祝日も利用できる</li>
+          <li>同じ目標の仲間がいる環境</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="price-sec" id="price">
+  <div class="sec-inner">
+    <span class="label">Pricing</span>
+    <div class="divbar"></div>
+    <h2 class="h2">料金について</h2>
+    <p class="lead" style="margin-top:16px;max-width:580px">料金はお問い合わせいただいた方にのみご案内しています。まずはお気軽にご連絡ください。</p>
+    <div class="price-inquiry">
+      <span class="price-inquiry-icon">💬</span>
+      <div class="price-inquiry-title">料金はお問い合わせにてご案内</div>
+      <p class="price-inquiry-body">月額制・使い放題のプランをご用意しています。<br>詳しい料金・プラン内容は、お問い合わせいただいた方に個別にご案内しています。<br>事前登録・お問い合わせはLINEまたはフォームから、お気軽にどうぞ。</p>
+      <a class="price-inquiry-btn" href="#cta">料金を問い合わせる</a>
+      <p class="price-inquiry-note">※ 事前登録者には<strong>初月特典</strong>をご用意しています</p>
+      <div class="price-points">
+        <div class="price-point"><span class="price-point-icon">🕐</span><div class="price-point-label">24時間365日 使い放題</div><div class="price-point-body">早朝からでも・土日祝日も利用可能。回数・時間制限なし。</div></div>
+        <div class="price-point"><span class="price-point-icon">📅</span><div class="price-point-label">月額固定・シンプル料金</div><div class="price-point-body">月ごとの定額制なので、毎月安心して計画が立てられます。</div></div>
+        <div class="price-point"><span class="price-point-icon">🎁</span><div class="price-point-label">事前登録で初月特典あり</div><div class="price-point-body">今すぐ登録いただいた方には、オープン月の特別特典をご用意。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-sec">
+  <div class="sec-inner">
+    <span class="label">Schedule</span>
+    <div class="divbar"></div>
+    <h2 class="h2">オープンまでの<br><em>スケジュール</em></h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-month">2026年 6月</div>
+        <div class="tl-title">事前登録受付スタート</div>
+        <p class="tl-body">このページから事前登録受付開始。先着3名様に初月特典あり。登録者には先行情報を優先でお知らせします。</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-month">2026年 7月</div>
+        <div class="tl-title">内覧会・体験利用</div>
+        <p class="tl-body">事前登録者を対象に、オープン前の内覧会を開催予定。実際の雰囲気を体験していただけます。詳細はLINEでご連絡。</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--amber-light);box-shadow:0 0 0 6px rgba(184,122,16,.2),0 0 16px rgba(184,122,16,.25)"></div>
+        <div class="tl-month">🎉 2026年 8月</div>
+        <div class="tl-title" style="font-size:22px;color:var(--amber)">グランドオープン</div>
+        <p class="tl-body" style="margin-bottom:12px">夏休みのタイミングに合わせてオープン。受験生の大切な夏をサポートします。</p>
+        <div class="tl-open">
+          <div class="tl-open-text">🏠 新潟県三条市北新保１丁目１８−２２</div>
+          <div class="tl-open-sub">学習塾トキ（〒955-0861）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="cta">
+  <div class="cta-inner">
+    <span class="cta-limit">先着3名 限定特典</span>
+    <h2 class="h2" style="margin-bottom:16px">事前登録で、<br><em>初月特典あり。</em></h2>
+    <p class="lead" style="margin-bottom:32px">8月オープンに向けて、今すぐ事前登録。<br>三条高校・三条東高校生を中心に受付中です。</p>
+    <div class="cta-highlight">📞 お問い合わせはLINEからでもOK</div>
+    <div class="cta-form">
+      <h3>事前登録フォーム（無料）</h3>
+      <div class="form-group"><label class="form-label">お名前（生徒名）</label><input class="form-input" type="text" placeholder="例：山田 太郎"></div>
+      <div class="form-group"><label class="form-label">学校名</label><select class="form-input form-select"><option value="">学校を選択してください</option><option>三条高校</option><option>三条東高校</option><option>その他</option></select></div>
+      <div class="form-group"><label class="form-label">学年</label><select class="form-input form-select"><option value="">学年を選択してください</option><option>高校1年生</option><option>高校2年生</option><option>高校3年生（受験生）</option></select></div>
+      <div class="form-group"><label class="form-label">連絡先（LINE ID または 電話番号）</label><input class="form-input" type="text" placeholder="例：@taro.yamada または 090-xxxx-xxxx"></div>
+      <button class="form-submit" onclick="handleSubmit(event)">事前登録する（先着3名 初月特典あり）</button>
+    </div>
+    <p class="cta-note">ご登録いただいた情報は、塾トキからのご連絡にのみ使用します。<br>登録後、担当者よりLINEまたはお電話にてご連絡いたします。</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-sec">
+  <div class="sec-inner">
+    <span class="label">FAQ</span>
+    <div class="divbar"></div>
+    <h2 class="h2">よくある質問</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">早朝から使えますか？学校に行く前に勉強したいのですが。</span><div class="faq-icon"></div></button>
+        <div class="faq-a">はい、もちろんです。図書館や公共施設の多くは9:00〜10:00からしか開きませんが、塾トキの自習室は早朝から利用できます。登校前に1〜2時間勉強してから学校へ行くことも可能です。土日・祝日も同じように使えるので、試験前の追い込みにも対応できます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">三条高校からどのくらいの距離ですか？</span><div class="faq-icon"></div></button>
+        <div class="faq-a">三条高校から徒歩約18分、自転車で約7分の距離です。放課後にそのまま立ち寄って勉強する流れにもぴったりです。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">保護者の立場から、セキュリティは大丈夫ですか？</span><div class="faq-icon"></div></button>
+        <div class="faq-a">会員制・スマートロックにより、登録した会員のみが入退室できます。入退室履歴はデジタルで記録されるため、保護者の方もお子さんの利用状況を確認いただけます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">塾トキに通っていない生徒でも利用できますか？</span><div class="faq-icon"></div></button>
+        <div class="faq-a">はい、塾トキの授業を受けていない方も自習室のみのご利用が可能です。もちろん、授業と自習室を組み合わせることもできます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">途中でやめることはできますか？</span><div class="faq-icon"></div></button>
+        <div class="faq-a">月単位での契約となりますが、翌月からの退会は随時受け付けています。契約期間の縛りはありません。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">事前登録の特典はいつまでですか？</span><div class="faq-icon"></div></button>
+        <div class="faq-a">先着3名様限定の特典をご用意しています。タイミングによっては特典を受けられない場合がございますので、お早めに登録をお願いします。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">場所はどこになりますか？</span><div class="faq-icon"></div></button>
+        <div class="faq-a">〒955-0861 新潟県三条市北新保１丁目１８−２２（学習塾トキ）です。三条高校から徒歩約18分・自転車約7分とアクセスしやすい立地です。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-logo">塾トキ 自習室</div>
+  <div class="ft-name">学習塾トキ｜三条市の高校生専用24時間自習室</div>
+  <div class="ft-info">
+    〒955-0861 新潟県三条市北新保１丁目１８−２２<br>
+    三条高校・三条東高校生対象<br>
+    2026年8月 グランドオープン予定<br><br>
+    © 2026 学習塾トキ All rights reserved.
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn){const item=btn.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(el=>el.classList.remove('open'));if(!isOpen)item.classList.add('open');}
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.animation='fadeup .5s ease both';e.target.style.opacity='1';}});},{threshold:0.1});
+document.querySelectorAll('.feature-card,.why-item,.tl-item,.faq-item').forEach(el=>{el.style.opacity='0';observer.observe(el);});
+function handleSubmit(e){e.preventDefault();const btn=e.target;btn.textContent='✅ 登録を受け付けました！担当者よりご連絡します';btn.style.background='#2e7d3a';btn.disabled=true;}
+window.addEventListener('scroll',()=>{document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>40);});
+</script>
+</body>
+</html>
